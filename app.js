@@ -6,10 +6,20 @@ import swaggerSpec from "./swagger/config.js";
 import v1Routes from "./router/index.js";
 import logger from "./logger/logger.js";
 
+import correlationIdMiddleware from "./middleware/correlationId.js";
+import { checkServiceHealth, checkReadiness } from "./controller/healthController.js";
+
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3006;
+
+// Trace ID & Request Correlation
+app.use(correlationIdMiddleware);
+
+// Health & Readiness Observability Endpoints
+app.get("/health", checkServiceHealth);
+app.get("/ready", checkReadiness);
 
 app.use(cors());
 app.use(express.json());
