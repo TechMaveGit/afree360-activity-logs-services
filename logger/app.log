@@ -49,3 +49,5 @@
 2026-08-12 04:43:40 [INFO] 🚀 Activity Logs Service running on port 3008 at Object.info (file:///Users/avisingh/Desktop/backendafree360/activity-logs-services/logger/logger.js:37:18)
 2026-09-04 11:47:32 [INFO] 🚀 Activity Logs Service running on port 3006 at Object.info (file:///var/www/html/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
 2026-09-04 12:45:09 [INFO] 🚀 Activity Logs Service running on port 3006 at Object.info (file:///var/www/html/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
+2026-09-07 12:29:57 [INFO] 🚀 Activity Logs Service running on port 4009 at Object.info (file:///var/www/html/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
+2026-09-07 12:29:57 [INFO] [REDIS] Activity Logs Service successfully connected to Redis at Object.info (file:///var/www/html/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
