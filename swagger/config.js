@@ -12,7 +12,6 @@ const swaggerOptions = {
       description: 'System log recording and analytics metrics API',
       contact: {
         name: 'API Support',
-        email: 'support@example.com',
       },
     },
     servers: [
