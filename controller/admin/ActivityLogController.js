@@ -1,3 +1,4 @@
+import { respondReadError } from '../../helper/readLimits.js';
 import { success, error400, error500 } from "../../helper/response.js";
 import ActivityLogRepository from "../../repositories/admin/ActivityLogRepository.js";
 import logger from "../../logger/logger.js";
@@ -24,6 +25,7 @@ export const getAdminActivityLogs = async (req, res) => {
 
     return success(res, "Admin activity logs retrieved successfully.", result);
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error fetching admin logs: ${error.message}`);
     return error500(res, "Failed to retrieve admin activity logs.");
   }
@@ -45,6 +47,7 @@ export const updateActivityStatus = async (req, res) => {
 
     return success(res, "Activity status updated successfully.");
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error updating activity status: ${error.message}`);
     return error500(res, "Failed to update activity status.");
   }
@@ -72,6 +75,7 @@ export const getThirdPartyLogs = async (req, res) => {
 
     return success(res, "Third party activity logs retrieved successfully.", result);
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error fetching third party logs: ${error.message}`);
     return error500(res, "Failed to retrieve third party logs.");
   }
@@ -86,6 +90,7 @@ export const getActivityMetrics = async (req, res) => {
     const metrics = await ActivityLogRepository.getActivityMetrics(startDate, endDate);
     return success(res, "Activity metrics fetched successfully.", metrics);
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error fetching activity metrics: ${error.message}`);
     return error500(res, "Failed to retrieve activity metrics.");
   }
