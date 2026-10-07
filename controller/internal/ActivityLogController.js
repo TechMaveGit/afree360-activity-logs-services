@@ -1,3 +1,4 @@
+import { respondReadError } from '../../helper/readLimits.js';
 import { success, error400, error500 } from "../../helper/response.js";
 import ActivityLogRepository from "../../repositories/internal/ActivityLogRepository.js";
 import logger from "../../logger/logger.js";
@@ -24,6 +25,7 @@ export const logActivity = async (req, res) => {
     const id = await ActivityLogRepository.createActivityLog(data);
     return success(res, "Activity logged successfully.", { id });
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error logging activity: ${error.message}`);
     return error500(res, "Failed to log activity.");
   }
@@ -49,6 +51,7 @@ export const logThirdParty = async (req, res) => {
     const id = await ActivityLogRepository.createThirdPartyLog(data);
     return success(res, "Third party activity logged successfully.", { id });
   } catch (error) {
+    if (respondReadError(res, error)) return;
     logger.error(`[ActivityLogCtrl] Error logging third party activity: ${error.message}`);
     return error500(res, "Failed to log third party activity.");
   }

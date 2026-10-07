@@ -1,8 +1,10 @@
+import { validateReadBounds } from '../helper/readLimits.js';
 import express from "express";
 import adminActivityLogs from "../routes/admin/activityLogs.js";
 import internalActivityLogs from "../routes/internal/activityLogs.js";
 
 const router = express.Router();
+router.use('/internal', validateReadBounds);
 
 router.use("/admin/activity-logs", adminActivityLogs);
 router.use("/internal/activity-logs", internalActivityLogs);
