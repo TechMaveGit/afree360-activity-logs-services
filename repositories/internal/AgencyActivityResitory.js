@@ -1,32 +1,12 @@
 import db from '../../config/db.js';
 import logger from '../../logger/logger.js';
 
-export const checkUserType = async (user_id) => {
-  try {
-    let user;
-    try {
-      user = await db('users').where('id', user_id).select('user_type').first();
-    } catch {
-      user = await db('afree360_user_service_db.users').where('id', user_id).select('user_type').first();
-    }
-
-    if (!user || user.user_type !== 'agency') {
-      throw 'Only agency user_type is allowed.';
-    }
-    return true;
-  } catch (error) {
-    throw error;
-  }
-};
-
 export const createActivityLog = async (data) => {
   try {
     
     if (!data.user_id) {
       throw 'user_id is required.';
     }
-
-    await checkUserType(data.user_id);
 
     if (!data.activity_type || !data.service_name) {
       throw 'activity_type and service_name are required.';
@@ -96,7 +76,6 @@ export const updateAgencyActivityStatus = async (id, isActive) => {
 };
 
 export default {
-  checkUserType,
   createActivityLog,
   getAgencyActivityLogs,
   updateAgencyActivityStatus

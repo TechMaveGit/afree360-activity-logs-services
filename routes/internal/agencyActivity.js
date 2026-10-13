@@ -1,9 +1,5 @@
 import express from "express";
-import {
-	getAgencyActivityLogs,
-	logActivity,
-	updateAgencyActivityStatus
-} from "../../controller/internal/AgencyActivityLogContoller.js";
+import { getAgencyActivityLogs, logActivity, updateAgencyActivityStatus } from "../../controller/internal/AgencyActivityLogContoller.js";
 
 const router = express.Router();
 
