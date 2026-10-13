@@ -1,6 +1,6 @@
 node_modules/
 .env
-
+ 
 # Ignore auto-generated log files
 *.log
 app.log
