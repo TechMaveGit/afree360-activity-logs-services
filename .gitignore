@@ -1,2 +1,11 @@
 node_modules/
 .env
+
+# Ignore auto-generated log files
+*.log
+app.log
+logger/*.log
+logger/app.log
+logger/*
+!logger/logger.js
+!logger/.gitkeep

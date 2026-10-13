@@ -7107,3 +7107,5 @@
 2026-10-13 06:27:11 [ERROR] [ActivityLogCtrl] Error logging activity: user is not defined at Object.error (file:///C:/wamp64/www/backendafree360/afree360-activity-logs-services/logger/logger.js:38:19)
 2026-10-13 06:29:18 [INFO] 🚀 Activity Logs Service running on port 4030 at Object.info (file:///C:/wamp64/www/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
 2026-10-13 06:29:18 [INFO] [REDIS] Activity Logs Service successfully connected to Redis at Object.info (file:///C:/wamp64/www/backendafree360/afree360-activity-logs-services/logger/logger.js:37:18)
+2026-10-13 09:30:07 [INFO] 🚀 Activity Logs Service running on port 4030 at Object.info (file:///C:/wamp64/www/backendafree360/afree360-activity-logs-services/logger/logger.js:58:22)
+2026-10-13 09:30:07 [INFO] [REDIS] Activity Logs Service successfully connected to Redis at Object.info (file:///C:/wamp64/www/backendafree360/afree360-activity-logs-services/logger/logger.js:58:22)
