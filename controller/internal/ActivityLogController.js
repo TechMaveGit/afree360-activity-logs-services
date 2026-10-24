@@ -1,6 +1,7 @@
 import { respondReadError } from '../../helper/readLimits.js';
 import { success, error400, error500 } from "../../helper/response.js";
 import ActivityLogRepository from "../../repositories/internal/ActivityLogRepository.js";
+import ActivityLogService from "../../services/internal/ActivityLogService.js";
 import logger from "../../logger/logger.js";
 
 export const logActivity = async (req, res) => {
@@ -22,7 +23,7 @@ export const logActivity = async (req, res) => {
       ip_address: client_ip || null
     };
 
-    const id = await ActivityLogRepository.createActivityLog(data);
+    const id = await ActivityLogService.logActivity(data);
     return success(res, "Activity logged successfully.", { id });
   } catch (error) {
     if (respondReadError(res, error)) return;
